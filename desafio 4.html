@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+
+<body>
+   <script>
+let response = "";
+
+let secret = Math.floor(Math.random() * (10-0 + 1) + 0);
+let chances = 3; 
+let victory = false; 
+
+console.log(secret); 
+while (chances > 0 && victory == false) {
+     response = parseInt(prompt("tente adivinhar um número entre 0 e 10"));
+    if (response == secret) {
+        victory = true;
+        alert("você ganhou");
+    } else {
+        chances = chances - 1;
+        alert(`você errou, tente novamente, chances: ${chances}`);
+    }
+}
+if (chances == 0 && victory == false) {
+    alert (`você perdeu, o número era ${secret}`);
+}
+
+</script>
+</body>
+</html>

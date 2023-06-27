@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let answer = "";
+let toRemove = "";
+let product = "";
+let option = "";
+
+var arr_freeze = [];
+var arr_fruit = [];
+var arr_milk = [];
+var arr_candy = [];
+
+
+while (answer != "não"){
+
+    answer = prompt("você quer inserir um iten na sua lista, sim ou não? \n ou deseja remover algum item? se sim, escreva "remover"").toLocaleLowerCase();
+    
+    if (answer == "não") {
+        break;
+    }
+
+    while (answer != "sim" && answer != "não" && answer != "remover") {
+        alert("opção inválida");
+        answer = prompt("você quer inserir um iten na sua lista, sim ou não? \n ou deseja remover algum item? se sim, escreva "remover"").toLocaleLowerCase();
+    }
+    
+    if (answer == "sim") {
+        
+        product = prompt("insira o nome do produto que quer adicionar:");
+        option = prompt("1 - produtos congelados \n 2 - frutas \n 3 - leite \n 4 - doces");
+        
+        switch (option) {
+            case "1" :
+                arr_freeze.push(product);
+                break;
+            case "2" :
+                arr_fruit.push(product);
+                break;
+            case "3" :
+                arr_milk.push(product);
+                break;
+            case "4" :
+                arr_candy.push(product);
+                break;
+            default : 
+                alert("insira uma opção válida");
+        }
+    }
+
+    if (answer == "remover") {
+        if (arr_freeze === 0 && arr_candy === 0 && arr_fruit === 0 && arr_milk === 0) {
+            alert("não existe nenhum produto em sua lista.");
+        } else {
+            toRemove = prompt(`qual produto você quer remover? \n Lista: \n produtos congelados ${arr_freeze} \n frutas ${arr_fruit} \n leite ${arr_milk} \n doces ${arr_candy}`);
+            if (arr_freeze.indexOf(toRemove) != -1){
+                arr_freeze.splice(arr_freeze.indexOf(toRemove), 1);
+                alert(`${toRemove} foi removido`);
+            } else if(arr_fruit.indexOf(toRemove) != -1){
+                arr_fruit.splice(arr_fruit.indexOf(toRemove), 1);
+                alert(`${toRemove} foi removido`);
+            } else if(arr_milk.indexOf(toRemove) != -1){
+                arr_milk.splice(arr_milk.indexOf(toRemove), 1);
+                alert(`${toRemove} foi removido`);
+            } else if(arr_candy.indexOf(toRemove) != -1){
+                arr_candy.splice(arr_candy.indexOf(toRemove), 1);
+                alert(`${toRemove} foi removido`);
+            } else {
+                alert("item inexistente");
+            }
+        }
+    }
+
+    answer = prompt("você quer continuar? sim ou não?").toLocaleLowerCase();
+}
+
+alert(`Lista: \n produtos congelados: ${arr_freeze} \n frutas: ${arr_fruit} \n leite: ${arr_milk} \n doces: ${arr_candy}`);
+    </script>
+</body>
+</html>
